@@ -15,7 +15,6 @@ jobs:
         committer_gist: f34ce5b1bc70befdb2502e3292e2f191
         filename: github-metrics.*
         output_action: gist
-        config_timezone: Austraila/Melbourne
 
         plugin_isocalendar: true
 
@@ -43,4 +42,4 @@ jobs:
         plugin_wakatime: true
         plugin_wakatime_token: ${{ secrets.WAKATIME_TOKEN }}
         plugin_wakatime_sections: time, languages, languages-graphs, editors, os
-        plugin_wakatime_url: https://wakapi.dev
+        plugin_wakatime_url: https://wakapi.dev/api
