@@ -1,0 +1,46 @@
+name: metrics
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+  push:
+jobs:
+  metrics:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: lowlighter/metrics@latest
+      with:
+        token: ${{ secrets.METRICS_TOKEN }}
+        committer_message: 'Update ${filename} [skip ci]'
+        committer_gist: f34ce5b1bc70befdb2502e3292e2f191
+        filename: github-metrics.*
+        output_action: gist
+        config_timezone: Austraila/Melbourne
+
+        plugin_isocalendar: true
+
+        plugin_languages: true
+        plugin_languages_skipped: eslint-config
+
+        plugin_introduction: true
+
+        plugin_reactions: true
+        plugin_reactions_details: percentage
+
+        plugin_gists: true
+        plugin_followup: true
+        plugin_lines: true
+        plugin_traffic: true
+        plugin_stargazers: true
+        plugin_achievements: true
+
+        plugin_stackoverflow: true
+        plugin_stackoverflow_user: 8289918
+
+        plugin_notable: true
+        plugin_notable_repositories: true
+
+        plugin_wakatime: true
+        plugin_wakatime_token: ${{ secrets.WAKATIME_TOKEN }}
+        plugin_wakatime_sections: time, languages, languages-graphs, editors, os
+        plugin_wakatime_url: https://wakapi.dev
