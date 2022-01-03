@@ -9,7 +9,7 @@ jobs:
   metrics:
     runs-on: ubuntu-latest
     steps:
-    - uses: lowlighter/metrics@v3.16
+    - uses: lowlighter/metrics@baebcb239acdd960996beb11a8cc9a5f5b06f5b1
       with:
         token: ${{ secrets.METRICS_TOKEN }}
         committer_message: 'Update ${filename} [skip ci]'
