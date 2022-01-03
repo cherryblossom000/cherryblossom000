@@ -53,7 +53,7 @@ jobs:
         # plugin_people
 
         # https://github.com/lowlighter/metrics/blob/master/source/plugins/stargazers/metadata.yml
-        plugin_stargazers: true
+        # plugin_stargazers
 
         # https://github.com/lowlighter/metrics/blob/master/source/plugins/projects/metadata.yml
         # plugin_projects
