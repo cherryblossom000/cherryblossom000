@@ -1,7 +1,7 @@
 name: metrics
 on:
   schedule:
-    - cron: '0 0 * * *'
+  - cron: '0 0 * * *'
   workflow_dispatch:
   push:
     paths: [.github/workflows/metrics.yml]
@@ -33,7 +33,8 @@ jobs:
         # plugin_stars
 
         # https://github.com/lowlighter/metrics/blob/master/source/plugins/habits/metadata.yml
-        # plugin_habits
+        plugin_habits: true
+        plugin_habits_charts: true
 
         # https://github.com/lowlighter/metrics/blob/master/source/plugins/stackoverflow/metadata.yml
         plugin_stackoverflow: true
@@ -41,6 +42,8 @@ jobs:
 
         # https://github.com/lowlighter/metrics/blob/master/source/plugins/followup/metadata.yml
         plugin_followup: true
+        plugin_followup_sections: repositories, user
+        plugin_followup_indepth: true
 
         # https://github.com/lowlighter/metrics/blob/master/source/plugins/reactions/metadata.yml
         plugin_reactions: true
@@ -56,7 +59,7 @@ jobs:
         # plugin_projects
 
         # https://github.com/lowlighter/metrics/blob/master/source/plugins/code/metadata.yml
-        # plugin_code
+        plugin_code: true
 
         # https://github.com/lowlighter/metrics/blob/master/source/plugins/activity/metadata.yml
         # plugin_activity
@@ -66,10 +69,12 @@ jobs:
 
         # https://github.com/lowlighter/metrics/blob/master/source/plugins/notable/metadata.yml
         plugin_notable: true
+        plugin_notable_from: all
         plugin_notable_repositories: true
+        plugin_notable_indepth: true
 
         # https://github.com/lowlighter/metrics/blob/master/source/plugins/discussions/metadata.yml
-        # plugin_discussions
+        plugin_discussions: true
 
         # https://github.com/lowlighter/metrics/blob/master/source/plugins/support/metadata.yml
         # plugin_support
@@ -115,7 +120,7 @@ jobs:
         # https://github.com/lowlighter/metrics/blob/master/source/plugins/wakatime/metadata.yml
         plugin_wakatime: true
         plugin_wakatime_token: ${{ secrets.WAKATIME_TOKEN }}
-        plugin_wakatime_sections: time, languages, languages-graphs, editors, os
+        plugin_wakatime_sections: time, languages, languages-graphs, editors, editors-graphs, os
 
         # https://github.com/lowlighter/metrics/blob/master/source/plugins/stock/metadata.yml
         # plugin_stock
