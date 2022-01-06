@@ -16,6 +16,7 @@ jobs:
         committer_gist: f34ce5b1bc70befdb2502e3292e2f191
         filename: github-metrics.*
         output_action: gist
+        config_gemoji: true
         config_timezone: Australia/Melbourne
 
         # Category: github
