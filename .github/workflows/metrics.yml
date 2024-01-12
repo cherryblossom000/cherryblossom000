@@ -1,0 +1,129 @@
+name: metrics
+on:
+  schedule:
+  - cron: '0 0 * * *'
+  workflow_dispatch:
+  push:
+    paths: [.github/workflows/metrics.yml]
+jobs:
+  metrics:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: lowlighter/metrics@v3.33
+      with:
+        token: ${{ secrets.METRICS_TOKEN }}
+        committer_message: 'Update ${filename} [skip ci]'
+        committer_gist: f34ce5b1bc70befdb2502e3292e2f191
+        filename: github-metrics.*
+        output_action: gist
+        config_gemoji: true
+        config_timezone: Australia/Melbourne
+
+        # Category: github
+
+        # https://github.com/lowlighter/metrics/blob/master/source/plugins/isocalendar/metadata.yml
+        plugin_isocalendar: true
+
+        # https://github.com/lowlighter/metrics/blob/master/source/plugins/languages/metadata.yml
+        plugin_languages: true
+        plugin_languages_skipped: eslint-config
+
+        # https://github.com/lowlighter/metrics/blob/master/source/plugins/topics/metadata.yml
+        # plugin_topics
+
+        # https://github.com/lowlighter/metrics/blob/master/source/plugins/stars/metadata.yml
+        # plugin_stars
+
+        # https://github.com/lowlighter/metrics/blob/master/source/plugins/habits/metadata.yml
+        plugin_habits: true
+        plugin_habits_charts: true
+
+        # https://github.com/lowlighter/metrics/blob/master/source/plugins/stackoverflow/metadata.yml
+        plugin_stackoverflow: true
+        plugin_stackoverflow_user: 8289918
+
+        # https://github.com/lowlighter/metrics/blob/master/source/plugins/followup/metadata.yml
+        plugin_followup: true
+        plugin_followup_sections: repositories, user
+        plugin_followup_indepth: true
+
+        # https://github.com/lowlighter/metrics/blob/master/source/plugins/reactions/metadata.yml
+        plugin_reactions: true
+        plugin_reactions_details: percentage
+
+        # https://github.com/lowlighter/metrics/blob/master/source/plugins/people/metadata.yml
+        # plugin_people
+
+        # https://github.com/lowlighter/metrics/blob/master/source/plugins/stargazers/metadata.yml
+        # plugin_stargazers
+
+        # https://github.com/lowlighter/metrics/blob/master/source/plugins/projects/metadata.yml
+        # plugin_projects
+
+        # https://github.com/lowlighter/metrics/blob/master/source/plugins/code/metadata.yml
+        plugin_code: true
+
+        # https://github.com/lowlighter/metrics/blob/master/source/plugins/activity/metadata.yml
+        # plugin_activity
+
+        # https://github.com/lowlighter/metrics/blob/master/source/plugins/achievements/metadata.yml
+        plugin_achievements: true
+
+        # https://github.com/lowlighter/metrics/blob/master/source/plugins/notable/metadata.yml
+        plugin_notable: true
+        plugin_notable_skipped: reeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee/reeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+        plugin_notable_from: all
+        plugin_notable_repositories: true
+        plugin_notable_indepth: true
+
+        # https://github.com/lowlighter/metrics/blob/master/source/plugins/discussions/metadata.yml
+        plugin_discussions: true
+
+        # https://github.com/lowlighter/metrics/blob/master/source/plugins/support/metadata.yml
+        # plugin_support
+
+        # https://github.com/lowlighter/metrics/blob/master/source/plugins/gists/metadata.yml
+        plugin_gists: true
+
+        # https://github.com/lowlighter/metrics/blob/master/source/plugins/introduction/metadata.yml
+        plugin_introduction: true
+
+        # https://github.com/lowlighter/metrics/blob/master/source/plugins/lines/metadata.yml
+        plugin_lines: true
+
+        # https://github.com/lowlighter/metrics/blob/master/source/plugins/traffic/metadata.yml
+        plugin_traffic: true
+
+        # https://github.com/lowlighter/metrics/blob/master/source/plugins/repositories/metadata.yml
+        # plugin_repositories
+
+        # https://github.com/lowlighter/metrics/blob/master/source/plugins/sponsors/metadata.yml
+        # plugin_sponsors
+
+        # https://github.com/lowlighter/metrics/blob/master/source/plugins/skyline/metadata.yml
+        # plugin_skyline
+
+        # Category: social
+
+        # https://github.com/lowlighter/metrics/blob/master/source/plugins/pagespeed/metadata.yml
+        # plugin_pagespeed
+
+        # https://github.com/lowlighter/metrics/blob/master/source/plugins/music/metadata.yml
+        # plugin_music
+
+        # https://github.com/lowlighter/metrics/blob/master/source/plugins/tweets/metadata.yml
+        # plugin_tweets
+
+        # https://github.com/lowlighter/metrics/blob/master/source/plugins/anilist/metadata.yml
+        # plugin_anilist
+
+        # https://github.com/lowlighter/metrics/blob/master/source/plugins/posts/metadata.yml
+        # plugin_posts
+
+        # https://github.com/lowlighter/metrics/blob/master/source/plugins/wakatime/metadata.yml
+        plugin_wakatime: true
+        plugin_wakatime_token: ${{ secrets.WAKATIME_TOKEN }}
+        plugin_wakatime_sections: time, languages, languages-graphs, editors, editors-graphs, os
+
+        # https://github.com/lowlighter/metrics/blob/master/source/plugins/stock/metadata.yml
+        # plugin_stock
